@@ -4,7 +4,7 @@ export default {
   container: {
     display: 'flex',
     flexGrow: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   subContainer: {
     display: 'flex',
@@ -12,7 +12,7 @@ export default {
     flexGrow: 1,
     maxWidth: 1000,
     minWidth: 500,
-    padding: 40,
+    padding: 40
   },
   h2: {
     fontSize: 28,
@@ -20,7 +20,7 @@ export default {
   },
   h3: {
     fontSize: 20,
-    padding: '16px 0',
+    padding: '24px 0',
     ...fonts.heavy
   }
 }

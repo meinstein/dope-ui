@@ -4,17 +4,8 @@ const path = require('path')
 const chalk = require('chalk')
 const parse = require('react-docgen').parse
 const chokidar = require('chokidar')
-
-// construct base paths
-const root = path.join(__dirname, '..')
-const src = path.join(root, 'src')
-const docs = path.join(src, 'docs')
-
-const paths = {
-  examples: path.join(src, 'examples'),
-  components: path.join(src, 'components'),
-  output: path.join(docs, 'componentData.js')
-}
+// local imports
+const paths = require('../project-paths')
 
 const enableWatchMode = process.argv.slice(2) == '--watch'
 if (enableWatchMode) {

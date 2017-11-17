@@ -5,8 +5,8 @@ export default {
     listStyleType: 'none',
     padding: '36px 20px',
     margin: 0,
-    backgroundColor: '#f4f6f9',
-    boxShadow: '2px 0px 10px rgba(0, 0, 0, 0.10)'
+    backgroundColor: '#f7f7f7',
+    borderRight: '1px solid #ececec'
   },
   li: {
     padding: 4

@@ -3,17 +3,12 @@ export default {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    marginBottom: 24
   },
-  subContainer: {
-    display: 'flex',
-    flexGrow: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: "#f4f6f9",
-    padding: 8,
-    marginBottom: 16
+  component: {
+    marginTop: 24
   },
-  icon: {
-    cursor: 'pointer'
+  example: {
+    marginTop: 24
   }
 }

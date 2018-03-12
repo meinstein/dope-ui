@@ -1,0 +1,12 @@
+[ignore]
+
+[include]
+src/components/**/*.js
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

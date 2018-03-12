@@ -22,7 +22,7 @@ const Props = ({ props }) => {
           <tr key={key}>
             <td style={{ ...styles.td, ...fonts.medium }}>{key}</td>
             <td style={styles.td}>{props[key].description}</td>
-            <td style={styles.td}>{props[key].type.name}</td>
+            <td style={styles.td}>{props[key].flowType.name}</td>
             <td style={styles.td}>{props[key].defaultValue && props[key].defaultValue.value}</td>
             <td style={styles.td}>{props[key].required && 'X'}</td>
           </tr>

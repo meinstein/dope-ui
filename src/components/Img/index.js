@@ -1,36 +1,45 @@
 // @flow
 import React from 'react'
+import styled, { keyframes } from 'styled-components'
 import styles from './styles'
-import './styles.css'
-
-const ImgPlaceholder = () => <div className="dope-ui-img-placeholder" />
 
 type Props = {
   /** The img src */
   src: string,
-  /** A click handler for img */
-  onClick: () => void,
   /** Any style to mix in */
   style?: {}
 }
 
 type State = {
-  error: boolean,
-  loading: boolean,
+  isLoading: boolean,
   src: string
 }
 
-class Img extends React.Component<Props, State> {
-  static defaultProps = {
-    onClick: () => ({})
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+`
 
+const FadeInWrapper = styled.div`
+  animation-name: ${props => (props.isLoading ? 'none' : fadeIn)};
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+`
+
+/**
+ * An image tag that fades in.
+ */
+class Img extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
 
     this.state = {
-      error: false,
-      loading: true,
+      isLoading: true,
       src: props.src
     }
   }
@@ -40,27 +49,22 @@ class Img extends React.Component<Props, State> {
     const nextSrc = nextProps.src
 
     if (currentSrc && nextSrc && currentSrc !== nextSrc) {
-      this.setState({ src: nextSrc, loading: true, error: false })
+      this.setState({ src: nextSrc, isLoading: true })
     }
   }
 
   render = () => (
-    <div style={{ ...styles.container, ...this.props.style }} onClick={this.props.onClick}>
-      {!this.state.error && (
-        <img
-          className={!this.state.loading ? 'dope-ui-fade-in' : ''}
-          src={this.state.src}
-          onLoad={() => this.setState({ loading: false })}
-          onError={() => this.setState({ loading: false, error: true })}
-          alt="img"
-          style={{
-            display: this.state.loading ? 'none' : 'inline-block',
-            ...styles.img
-          }}
-        />
-      )}
-      {this.state.loading && <ImgPlaceholder />}
-    </div>
+    <FadeInWrapper isLoading={this.state.isLoading}>
+      <img
+        alt="img"
+        src={this.state.src}
+        onLoad={() => this.setState({ isLoading: false })}
+        style={{
+          display: this.state.isLoading ? 'none' : 'inline-block',
+          ...styles.img
+        }}
+      />
+    </FadeInWrapper>
   )
 }
 

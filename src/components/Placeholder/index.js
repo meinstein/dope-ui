@@ -1,24 +1,37 @@
+// @flow
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
-// Create a Title component that'll render an <h1> tag with some styles
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+type Props = {
+  /** The img src */
+  style?: {}
+}
+
+// keyframes returns a unique name based on a hash of the contents of the keyframes
+const bgPosition = keyframes`
+  0% {
+    background-position: 49% 0%;
+  }
+  50% {
+    background-position: 52% 100%;
+  }
+  100% {
+    background-position: 49% 0%;
+  }
 `
 
-// Create a Wrapper component that'll render a <section> tag with some styles
-const Wrapper = styled.section`
-  padding: 4em;
-  background: papayawhip;
+// Here we create a component that will rotate everything we pass in over two seconds
+const AnimateBg = styled.div`
+  background: linear-gradient(135deg, #ffffff, #d3d3d3);
+  background-size: 200% 200%;
+  animation: ${bgPosition} 1500ms ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.05), 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 1, 0.1);
 `
-
-// Use Title and Wrapper like any other React component – except they're styled!
-const Placeholder = () => (
-  <Wrapper>
-    <Title>Hello World, this is my first styled component!</Title>
-  </Wrapper>
-)
+/**
+ * A div with a fading gradient for use as a placeholder.
+ */
+const Placeholder = ({ style }: Props) => <AnimateBg style={style} />
 
 export default Placeholder

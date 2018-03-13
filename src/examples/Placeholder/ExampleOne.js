@@ -1,7 +1,6 @@
 import React from 'react'
-import { Placeholder } from '../../../lib'
-// import { Placeholder } from 'dope-ui'
+import { Placeholder } from 'dope-ui'
 
-const PlaceholderExample = () => <Placeholder />
+const PlaceholderExample = () => <Placeholder style={{ width: 300, height: 350 }} />
 
 export default PlaceholderExample

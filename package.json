@@ -1,6 +1,6 @@
 {
   "name": "dope-ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "main": "lib/index.js",
   "dependencies": {
@@ -14,8 +14,7 @@
     "gen:docs-watch": "npm run gen:docs -- --watch",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "build:lib":
-      "babel src/components --out-dir lib --presets=es2015,react,stage-1 --plugins=babel-plugin-styled-components",
+    "build:lib": "babel src/components --out-dir lib --presets=es2015,react,stage-1 --plugins=babel-plugin-styled-components",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "prepare": "npm run build:lib"

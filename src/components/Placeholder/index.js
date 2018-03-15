@@ -30,7 +30,7 @@ const AnimateBg = styled.div`
   height: 100%;
 `
 /**
- * A div with a fading gradient for use as a placeholder.
+ * A div with an animating gradient for use as a placeholder.
  */
 const Placeholder = ({ style, children }: Props) => <AnimateBg style={style}>{children}</AnimateBg>
 

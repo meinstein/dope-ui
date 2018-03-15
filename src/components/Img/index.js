@@ -2,8 +2,6 @@
 // external imports
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-// local imports
-import { Placeholder } from 'dope-ui'
 
 type Props = {
   /** The img src */
@@ -56,20 +54,18 @@ class Img extends React.Component<Props, State> {
   }
 
   render = () => (
-    <div style={this.props.style}>
-      {this.state.isLoading && <Placeholder />}
-      <FadeInImg
-        isLoading={this.state.isLoading}
-        alt="img"
-        src={this.state.src}
-        onLoad={() => this.setState({ isLoading: false })}
-        style={{
-          display: this.state.isLoading ? 'none' : 'inline-block',
-          maxWidth: '100%',
-          maxHeight: '100%'
-        }}
-      />
-    </div>
+    <FadeInImg
+      isLoading={this.state.isLoading}
+      alt="img"
+      src={this.state.src}
+      onLoad={() => this.setState({ isLoading: false })}
+      style={{
+        display: this.state.isLoading ? 'none' : 'inline-block',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        ...this.props.style
+      }}
+    />
   )
 }
 

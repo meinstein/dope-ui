@@ -1,13 +1,25 @@
 # dope-ui
 
-A well-documented visual library of dope React components.  
+A handful of dope React components.
 
-## Getting Started
+### Install
+
+```
+npm i dope-ui
+```
+
+### Use
+
+```
+import { Img } from 'dope-ui'
+```
+
+### Explore
+
+See live [here](https://meinstein.github.io/dope-ui/)
+
+### Local Dev
+
 ```
 npm start
 ```
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).

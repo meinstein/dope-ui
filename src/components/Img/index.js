@@ -1,7 +1,9 @@
 // @flow
+// external imports
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import styles from './styles'
+// local imports
+import { Placeholder } from 'dope-ui'
 
 type Props = {
   /** The img src */
@@ -24,7 +26,7 @@ const fadeIn = keyframes`
   }
 `
 
-const FadeInWrapper = styled.div`
+const FadeInImg = styled.img`
   animation-name: ${props => (props.isLoading ? 'none' : fadeIn)};
   animation-duration: 500ms;
   animation-timing-function: ease-in-out;
@@ -54,17 +56,20 @@ class Img extends React.Component<Props, State> {
   }
 
   render = () => (
-    <FadeInWrapper isLoading={this.state.isLoading}>
-      <img
+    <div style={this.props.style}>
+      {this.state.isLoading && <Placeholder />}
+      <FadeInImg
+        isLoading={this.state.isLoading}
         alt="img"
         src={this.state.src}
         onLoad={() => this.setState({ isLoading: false })}
         style={{
           display: this.state.isLoading ? 'none' : 'inline-block',
-          ...styles.img
+          maxWidth: '100%',
+          maxHeight: '100%'
         }}
       />
-    </FadeInWrapper>
+    </div>
   )
 }
 

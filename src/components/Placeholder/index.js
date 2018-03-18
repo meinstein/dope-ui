@@ -3,9 +3,10 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
 type Props = {
-  /** The img src */
+  /** Style object */
   style?: {},
-  children: any
+  /** Child elements */
+  children?: any
 }
 
 // keyframes returns a unique name based on a hash of the contents of the keyframes
